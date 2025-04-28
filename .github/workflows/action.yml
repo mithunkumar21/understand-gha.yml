@@ -16,6 +16,7 @@ jobs:
               node-version: '14'
 
          - name: install dependencies and build using webpack
+           working-directory: ./
            run: |
               npm install
               npm run build     
