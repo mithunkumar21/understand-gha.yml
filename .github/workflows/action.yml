@@ -1,15 +1,21 @@
 name: the anatomy of a github action
 
-on: [push]
+on:
+   push
 
 jobs:
    action:
       runs-on: ubuntu-latest
       steps:
          - name: checkout repo
-           uses: actions/checkout@v1
+           uses: actions/checkout@v3
 
-         - name: npm install and build webpack
+         - name: set up node.js
+           uses: actions/setup-node@v3
+           with:
+              node-version: '14'
+
+         - name: install dependencies and build using webpack
            run: |
-              npm install 
-              npm run build 
+              npm install
+              npm run build     
